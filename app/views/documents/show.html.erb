@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @document.name %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @document.status %>
+</p>
+
+<p>
+  <b>Assigned to:</b>
+  <%= @document.assigned_to %>
+</p>
+
+<p>
+  <b>Requested by:</b>
+  <%= @document.requested_by %>
+</p>
+
+<p>
+  <b>Deadline:</b>
+  <%= @document.deadline %>
+</p>
+
+<p>
+  <b>Client:</b>
+  <%= @document.client %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @document.description %>
+</p>
+
+<p>
+  <b>Designers notes:</b>
+  <%= @document.notes %>
+</p>
+
+
+<%= link_to 'Edit', edit_document_path(@document) %> |
+<%= link_to 'Back', documents_path %>

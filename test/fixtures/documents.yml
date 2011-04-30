@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  status: MyString
+  assigned_to: MyString
+  requested_by: MyString
+  deadline: 1
+  client: MyString
+  description: MyString
+  notes: MyString
+
+two:
+  name: MyString
+  status: MyString
+  assigned_to: MyString
+  requested_by: MyString
+  deadline: 1
+  client: MyString
+  description: MyString
+  notes: MyString
