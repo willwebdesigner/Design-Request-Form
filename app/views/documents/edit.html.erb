@@ -1,6 +1,44 @@
-<h1>Editing document</h1>
+<section class="edit">
+<%= form_for(@document) do |f| %>
+  <% if @document.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@document.errors.count, "error") %> prohibited this document from being saved:</h2>
 
-<%= render 'form' %>
+      <ul>
+      <% @document.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  	<h1><%= @document.name %></h1> 
+	<div class="menuButtons"><%= f.submit 'Save' %></div>
+	
+	<div class="clearfixBorder"></div>
+
+  	<ul class="summary">
+		<li><label>Requested by:</label><%= @document.requested_by %></li>
+		<li><label>Date requested:</label><%= @document.created_at.strftime("%d/%m/%Y") %></li>
+		<li><label>Client:</label><%= @document.client %></li>
+		<li><%= f.label :deadline %> <%= f.date_select :deadline, :order => [:day, :month, :year] %></li>
+	</ul>
+
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.collection_select :status, Document.status_name_option, :first, :last %>
+  </div>
+	
+	<h2>Description</h2>
+	<p><%= @document.description %></p>
+
+	<h2>Designers notes:</h2>
+	<%= f.text_area :notes %>
+
+
+<% end %>
+
 
 <%= link_to 'Show', @document %> |
 <%= link_to 'Back', documents_path %>
+</section>

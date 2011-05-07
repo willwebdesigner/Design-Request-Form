@@ -1,7 +1,10 @@
 MyCms::Application.routes.draw do
-  resources :documents
 
-  resources :clubs
+  root :to => 'Documents#index'
+  
+  resources :users
+  resources :documents
+  
 
   # get "requests/index"
 

@@ -1,7 +1,10 @@
 class Document < ActiveRecord::Base
   
+  has_and_belongs_to_many :users
+  
   validates_presence_of :name, :requested_by
   
+  # This converts the status dropdown box from key numbers to text
   STATUS_NAMES = {
     1 => "New",
     2 => "In Progress",
@@ -29,6 +32,8 @@ class Document < ActiveRecord::Base
         
       if days == 1
         "Due tomorrow"
+      elsif days == 0
+        "Deadline today"
       elsif days == -1
         "Overdue yesterday"
       elsif days < 0

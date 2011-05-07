@@ -36,3 +36,5 @@ div.field, div.actions {
   font-size: 12px;
   list-style: square;
 }
+
+table tr td { padding: 10px; border: 1px solid #000;}

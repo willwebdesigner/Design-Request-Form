@@ -10,14 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110428200020) do
-
-  create_table "clubs", :force => true do |t|
-    t.string   "name"
-    t.boolean  "exclusive"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20110503205335) do
 
   create_table "documents", :force => true do |t|
     t.string   "name"
@@ -32,9 +25,24 @@ ActiveRecord::Schema.define(:version => 20110428200020) do
     t.datetime "updated_at"
   end
 
-  create_table "requests", :force => true do |t|
+  create_table "documents_users", :id => false, :force => true do |t|
+    t.integer "document_id"
+    t.integer "user_id"
+  end
+
+  add_index "documents_users", ["document_id", "user_id"], :name => "index_documents_users_on_document_id_and_user_id"
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "password"
+    t.boolean  "exclusive"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email"
+    t.string   "salt",       :limit => 40
+    t.string   "username"
   end
+
+  add_index "users", ["username"], :name => "index_users_on_username"
 
 end

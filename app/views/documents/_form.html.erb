@@ -15,12 +15,7 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :status %><br />
-    <%= f.collection_select :status,
-		Document.status_name_option,
-		:first, :last %>
-  </div>
+
   <div class="field">
     <%= f.label :assigned_to %><br />
     <%= f.text_field :assigned_to %>
